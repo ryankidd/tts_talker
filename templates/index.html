@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TTS Speaker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Text to Speech</h1>
+        
+        <div class="controls-container">
+            <div class="tts-type-selector">
+                <h2>Select TTS System</h2>
+                <div class="radio-group">
+                    <input type="radio" id="local" name="tts-type" value="local" checked>
+                    <label for="local">Local TTS</label>
+                    
+                    <input type="radio" id="online" name="tts-type" value="online">
+                    <label for="online">ElevenLabs</label>
+                    
+                    <input type="radio" id="xtts" name="tts-type" value="xtts">
+                    <label for="xtts">XTTS</label>
+                </div>
+            </div>
+
+            <div class="voice-selector">
+                <h2>Select Voice</h2>
+                <select id="voice-select" class="styled-select">
+                    <option value="">Loading voices...</option>
+                </select>
+            </div>
+
+            <div class="volume-control">
+                <h2>Volume</h2>
+                <input type="range" id="volume-slider" min="0" max="100" value="100">
+                <span id="volume-value">100%</span>
+            </div>
+        </div>
+
+        <div class="input-container">
+            <textarea id="text-input" placeholder="Enter text to speak..."></textarea>
+            <button id="speak-button" class="glow-button">Speak</button>
+        </div>
+
+        <div id="status" class="status"></div>
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html> 
